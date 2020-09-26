@@ -1,58 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">XPosition</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="#">멘토</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">멘티</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">공지사항/이벤트/문의</a>
-            </li> -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">멘토</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">멘티</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                    aria-expanded="false">공지사항/이벤트/문의</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <h1 class="logo mr-auto"><a href="index.html">NPosition<span>.</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="drop-down active"><a href="">멘토</a>
+                    <ul>
+                        <li><a href="{% url 'mento'%}">제리 멘토</a></li>
+                        <li><a href="mento.html">리더K 멘토</a></li>
+                        <li><a href="mento.html">은둔고수 멘토</a></li>
+                        <li><a href="mento.html">수급대장 멘토</a></li>
+                    </ul>
+                </li>
+                <li class="drop-down"><a href="">강의</a>
+                    <ul>
+                        <li><a href="#">멘토별 강의</a></li>
+                        <li><a href="#">강의후기</a></li>
+                    </ul>
+                </li>
+                <li class="drop-down"><a href="">멘티</a>
+                    <ul>
+                        <li><a href="#">가입인사</a></li>
+                        <li><a href="#">수익인증</a></li>
+                        <li><a href="#">멘티간 종목추천</a></li>
+                        <li><a href="#">질문/답변</a></li>
+                        <li><a href="#">자유게시판</a></li>
+                    </ul>
+                </li>
+                <li class="drop-down"><a href="">공지사항/이벤트</a>
+                    <ul>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">고객센터/문의</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav><!-- .nav-menu -->
     </div>
-</nav>
+</header><!-- End Header -->

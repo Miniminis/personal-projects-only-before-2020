@@ -11,3 +11,7 @@ class RegisterView(TemplateView):
 
 class LoginView(TemplateView):
     pass
+
+class MentoView(TemplateView):
+    template_name='mento/mento.html'
+

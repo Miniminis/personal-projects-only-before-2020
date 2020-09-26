@@ -25,4 +25,6 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('register/', RegisterView.as_view(template_name='register.html'), name='register'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+
+    path('v1/', include('contents.urls')),
 ]
