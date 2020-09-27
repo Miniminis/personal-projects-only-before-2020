@@ -1,41 +1,40 @@
-<!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-        <h1 class="logo mr-auto"><a href="index.html">NPosition<span>.</span></a></h1>
+        <h1 class="logo mr-auto"><a href="{% url 'home' %}">NPosition<span>.</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="drop-down active"><a href="">멘토</a>
+                <li class="drop-down active"><a href="{% url 'mento'%}">멘토</a>
                     <ul>
                         <li><a href="{% url 'mento'%}">제리 멘토</a></li>
-                        <li><a href="mento.html">리더K 멘토</a></li>
-                        <li><a href="mento.html">은둔고수 멘토</a></li>
-                        <li><a href="mento.html">수급대장 멘토</a></li>
+                        <li><a href="{% url 'mento'%}">리더K 멘토</a></li>
+                        <li><a href="{% url 'mento'%}">은둔고수 멘토</a></li>
+                        <li><a href="{% url 'mento'%}">수급대장 멘토</a></li>
                     </ul>
                 </li>
-                <li class="drop-down"><a href="">강의</a>
-                    <ul>
+                <li><a href="{% url 'lecture'%}">강의</a>
+                    <!-- <ul>
                         <li><a href="#">멘토별 강의</a></li>
                         <li><a href="#">강의후기</a></li>
+                    </ul> -->
+                </li>
+                <li class="drop-down"><a href="{% url 'welcome' %}">멘티</a>
+                    <ul>
+                        <li><a href="{% url 'welcome' %}">가입인사</a></li>
+                        <li><a href="{% url 'profit' %}">수익률인증</a></li>
+                        <li><a href="{% url 'product' %}">멘티간 종목추천</a></li>
+                        <li><a href="{% url 'qna' %}">질문/답변</a></li>
+                        <li><a href="{% url 'board' %}">자유게시판</a></li>
                     </ul>
                 </li>
-                <li class="drop-down"><a href="">멘티</a>
+                <li class="drop-down"><a href="{% url 'announce' %}">공지/이벤트/문의</a>
                     <ul>
-                        <li><a href="#">가입인사</a></li>
-                        <li><a href="#">수익인증</a></li>
-                        <li><a href="#">멘티간 종목추천</a></li>
-                        <li><a href="#">질문/답변</a></li>
-                        <li><a href="#">자유게시판</a></li>
-                    </ul>
-                </li>
-                <li class="drop-down"><a href="">공지사항/이벤트</a>
-                    <ul>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">이벤트</a></li>
-                        <li><a href="#">고객센터/문의</a></li>
+                        <li><a href="{% url 'announce' %}">공지사항</a></li>
+                        <li><a href="{% url 'event' %}">이벤트</a></li>
+                        <li><a href="{% url 'faq' %}">고객센터/문의</a></li>
                     </ul>
                 </li>
             </ul>
