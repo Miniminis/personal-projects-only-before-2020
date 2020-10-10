@@ -1,0 +1,28 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Launch Js Debug Example",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000/",
+            "webRoot": "${workspaceFolder}",
+            "pathMapping": {
+                "js/init.js": "${workspaceFolder}/map_project_v1/js/init.js",
+                "js/infoOverlay.js": "${workspaceFolder}/map_project_v1/js/infoOverlay.js",
+                "js/keyword.js": "${workspaceFolder}/map_project_v1/js/keyword.js",
+                "js/keywordList.js": "${workspaceFolder}/map_project_v1/js/keywordList.js",
+                "js/marker.js": "${workspaceFolder}/map_project_v1/js/marker.js",
+                "js/overlay.js": "${workspaceFolder}/map_project_v1/js/overlay.js",
+                "js/polygon.js": "${workspaceFolder}/map_project_v1/js/polygon.js",
+                "js/usercontrol.js": "${workspaceFolder}/map_project_v1/js/usercontrol.js",
+                "js/util.js": "${workspaceFolder}/map_project_v1/js/util.js"
+            },
+            "skipFiles": [
+                "node_modules/*",
+                "jquery-3.3.1.min.js"
+            ],
+            "disableNetworkCache": true
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SearchMap</title>
+  <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5f63502ad5367b1fd7bc1efbc55d7f46&libraries=services,clusterer,drawing">
+    </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="map_wrap">
+    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+
+    <div id="menu_wrap" class="bg_white">
+      <div class="option">
+
+        <div class="slidecontainer">
+          <form onsubmit="searchPlaces(); return false;">
+            <input type="text" id="keyword" value="" size="15" placeholder="장소, 주소 검색" autofocus="true">
+            <button type="submit">검색하기</button>
+          </form>
+        </div>
+
+        <div class="slidecontainer">
+          반경 : <span id="defaultRedius"></span><span>M</span> 
+          <input type="range" min="1" max="2000" value="1000" class="slider" id="myRange">
+        </div>      
+
+      </div>
+
+      <span id="resultCnt" class="slidecontainer"></span>
+      <button onclick="sendListToServer()">ajax통신</button>
+
+      <hr>
+
+      <ul id="placesList"></ul>
+
+      <div id="pagination"></div>
+
+    </div>
+
+  </div>
+
+  <div class="custom_typecontrol radius_border">
+    <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+    <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+  </div>
+
+  <div class="custom_zoomcontrol radius_border">
+    <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"
+        alt="확대"></span>
+    <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
+        alt="축소"></span>
+  </div>
+
+  <div class="custom_rightBar radius_border">
+    <span onclick="geoLocationInit()"><img src="./imgs/icon_gps.png"></span></span>
+    <span onclick="selectOverlay()"><img src="./imgs/icon_radius.png"></span></span>
+    <span onclick="removeExceptMarkers()"><img src="./imgs/icon_eraser.png"></span></span>
+    <span onclick="setPolygon()"><img src="./imgs/icon_polygon.png"></span></span>
+  </div>
+
+  <script type="text/javascript" src="./js/init.js"></script>
+  <script type="text/javascript" src="./js/util.js"></script>
+  <script type="text/javascript" src="./js/keyword.js"></script>
+  <script type="text/javascript" src="./js/marker.js"></script>
+  <script type="text/javascript" src="./js/keywordList.js"></script>
+  <script type="text/javascript" src="./js/infoOverlay.js"></script>
+  <script type="text/javascript" src="./js/usercontrol.js"></script>
+  <script type="text/javascript" src="./js/overlay.js"></script>
+  <script type="text/javascript" src="./js/polygon.js"></script>
+
+</body>
+
+</html>
