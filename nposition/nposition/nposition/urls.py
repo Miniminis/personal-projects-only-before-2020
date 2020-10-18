@@ -23,8 +23,8 @@ urlpatterns = [
     path('apis/', include('apis.urls')),
 
     path('', HomeView.as_view(), name='home'),
-    path('register/', RegisterView.as_view(template_name='register.html'), name='register'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('register/', RegisterView.as_view(template_name='user/register.html'), name='register'),
+    path('login/', LoginView.as_view(template_name='user/login.html'), name='login'),
 
     path('v1/', include('contents.urls')),
 ]

@@ -36,8 +36,8 @@ class MenteeBoardView(TemplateView):
 class AnnouncementView(TemplateView):
     template_name='etc/announcement.html'
 
-class EventView(TemplateView):
-    template_name='etc/event.html'
+# class EventView(TemplateView):
+#     template_name='etc/event.html'
 
 class FAQView(TemplateView):
     template_name='etc/faq.html'

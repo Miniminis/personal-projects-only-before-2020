@@ -3,8 +3,9 @@ from .views import (MentoView,
                     LectureView, 
                     MenteeWelcomeView, MenteeProfitAuthView, MenteeProductRecommView, 
                     MenteeBoardView, MenteeQnAView,
-                    AnnouncementView, EventView, FAQView)
-
+                    AnnouncementView, 
+                    # EventView, 
+                    FAQView)
 
 urlpatterns = [
     path('mento/', MentoView.as_view(), name='mento'),
@@ -18,6 +19,6 @@ urlpatterns = [
     path('mentee/board', MenteeBoardView.as_view(), name='board'),
 
     path('announce/', AnnouncementView.as_view(), name='announce'),
-    path('event/', EventView.as_view(), name='event'),
+    # path('event/', EventView.as_view(), name='event'),
     path('faq/', FAQView.as_view(), name='faq'),
 ]
