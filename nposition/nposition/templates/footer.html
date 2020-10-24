@@ -3,13 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 footer-contact">
-                    <h3>NPosition | 엔포지션<span></span></h3>
+                    <h3>{{ company_info.name }}<span></span></h3>
                     <p>
-                        경기 고양시 일산서구 일산로 774 <br><br>
-                        <strong>대표자:</strong> 박혜연<br>
-                        <strong>전화:</strong> 01075681169<br>
-                        <strong>이메일:</strong> hhyy9009@naver.com<br>
-                        <strong>사업자번호:</strong> 653-24-00789<br>
+                        {{ company_info.address }} <br><br>
+                        <strong>대표자: </strong>{{ company_info.ceo }}<br>
+                        <strong>전화: </strong>{{ company_info.tel_num }}<br>
+                        <strong>이메일: </strong> {{ company_info.email }}<br>
+                        <strong>사업자번호: </strong>{{ company_info.busin_num }}<br>
+                        <strong>카카오 ID: </strong>{{ company_info.kakao_id }}<br>
                     </p>
                 </div>
 

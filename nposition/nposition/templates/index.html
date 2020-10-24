@@ -4,7 +4,7 @@
 {% block body %}
 <!-- ======= Carousel Section ======= -->
 <section id="hero" class="d-flex align-items-center">
-  <div class="container" >
+  <div class="container">
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" data-interval="10000">
@@ -36,7 +36,7 @@
 
   <!-- ======= 수익률 인증 Section ======= -->
   <section id="about" class="about section-bg">
-    <div class="container" >
+    <div class="container">
 
       <div class="section-title">
         <h2>수익률 인증</h2>
@@ -177,7 +177,7 @@
 
   <!-- ======= 강의후기 Section ======= -->
   <section id="testimonials" class="testimonials">
-    <div class="container" >
+    <div class="container">
 
       <div class="owl-carousel testimonials-carousel">
 
@@ -249,16 +249,18 @@
 
   <!-- ======= 멘토 Section ======= -->
   <section id="team" class="team section-bg">
-    <div class="container" >
+    <div class="container">
+
       <div class="section-title">
-        <h2>멘토</h2>
+        <h2>멘토소개</h2>
         <h3>회원님들을 이끌 강력한 <span>멘토들!!!</span></h3>
         <p>투자의 정확한 가치와 타이밍을 안내해드립니다.</p>
       </div>
 
       <div class="row">
 
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" >
+        {% for mento in mentos %}
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
           <div class="member">
             <div class="member-img">
               <img src="https://t1.daumcdn.net/cfile/tistory/99A4B13D5C0D1CE01A" class="img-fluid" alt="">
@@ -270,135 +272,39 @@
               </div>
             </div>
             <div class="member-info">
-              <h4>제리 멘토</h4>
-              <span>제리 멘토의 한줄소개</span>
+              <h4>{{ mento.name }} 멘토</h4>
+              <span>{{ mento.description }}</span>
+              <span>{{ mento.kakao_id }}</span>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" >
-          <div class="member">
-            <div class="member-img">
-              <img src="https://t1.daumcdn.net/cfile/tistory/99A4B13D5C0D1CE01A" class="img-fluid" alt="">
-              <div class="social">
-                <!-- <a href=""><i class="icofont-twitter"></i></a> -->
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <!-- <a href=""><i class="icofont-linkedin"></i></a> -->
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>리더K 멘토</h4>
-              <span>리더K 멘토의 한줄소개</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" >
-          <div class="member">
-            <div class="member-img">
-              <img src="https://t1.daumcdn.net/cfile/tistory/99A4B13D5C0D1CE01A" class="img-fluid" alt="">
-              <div class="social">
-                <!-- <a href=""><i class="icofont-twitter"></i></a> -->
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <!-- <a href=""><i class="icofont-linkedin"></i></a> -->
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>은둔고수 멘토</h4>
-              <span>은둔고수 멘토의 한줄소개</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" >
-          <div class="member">
-            <div class="member-img">
-              <img src="https://t1.daumcdn.net/cfile/tistory/99A4B13D5C0D1CE01A" class="img-fluid" alt="">
-              <div class="social">
-                <!-- <a href=""><i class="icofont-twitter"></i></a> -->
-                <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
-                <!-- <a href=""><i class="icofont-linkedin"></i></a> -->
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>수급대장 멘토</h4>
-              <span>수급대장 멘토의 한줄소개</span>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
 
       </div>
-
     </div>
   </section><!-- End 멘토 Section -->
 
   <!-- ======= 공지사항 section ======= -->
   <section id="featured-services" class="featured-services">
-    <div class="container" >
+    <div class="container">
       <div class="row">
         <div class="col">
-          <div style="padding: 10px; font-weight: bold;">공지사항 <span style="float:right"><a href=#>더보기</a></span></div>
+          <div style="padding: 10px; font-weight: bold;">공지사항 <span style="float:right"><a
+                href="{% url 'announce'%}">더보기</a></span></div>
           <table class="table table-hover">
             <tbody>
+              {% for ann in announcements %}
               <tr>
-                <td colspan="2">[고고스탁] 빠른 수급+스윙 투자의 정석 !</td>
-                <td>2020-09-10</td>
+                <td colspan="2">{{ ann.title }}</td>
+                <td>{{ ann.created_at }}</td>
               </tr>
-              <tr>
-                <td colspan="2">[고고스탁] 빠른 수급+스윙 투자의 정석 !</td>
-                <td>2020-09-10</td>
-              </tr>
-              <tr>
-                <td colspan="2">[고고스탁] 빠른 수급+스윙 투자의 정석 !</td>
-                <td>2020-09-10</td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>
-
-        <!-- <div class="col-6">
-          <div style="padding: 10px; font-weight: bold;">이벤트 <span style="float:right"><a href=#>더보기</a></span></div>
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <td colspan="2">[고고스탁] 빠른 수급+스윙 투자의 정석 !</td>
-                <td>2020-09-10</td>
-              </tr>
-              <tr>
-                <td colspan="2">[고고스탁] 빠른 수급+스윙 투자의 정석 !</td>
-                <td>2020-09-10</td>
-              </tr>
-              <tr>
-                <td colspan="2">[고고스탁] 빠른 수급+스윙 투자의 정석 !</td>
-                <td>2020-09-10</td>
-              </tr>
-            </tbody>
-          </table>
-        </div> -->
-
       </div>
-    </div>
-
     </div>
   </section><!-- End of 공지사항 Section -->
+  
 </main><!-- End #main -->
-
-<!-- <footer id="footer">
-  <div class="footer-newsletter">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <h4>메일로 뉴스레터를 받아보세요</h4>
-          <p>오늘 급상승할 종목을 남들보다 먼저 선점하세요</p>
-          <form action="" method="post">
-            <input type="email" name="email"><input type="submit" value="Subscribe">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer> -->
 {% endblock %}

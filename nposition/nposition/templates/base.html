@@ -38,8 +38,8 @@
     <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
         <div class="container d-flex">
             <div class="contact-info mr-auto">
-                <i class="icofont-envelope"></i> <a href="mailto:contact@example.com">nposition@example.com</a>
-                <i class="icofont-phone"></i> 010-1234-5678
+                <i class="icofont-envelope"></i> <a href="mailto:contact@example.com">{{ company_info.email }}</a>
+                <i class="icofont-phone"></i> {{ company_info.tel_num }}
             </div>
             <div class="social-links">
                 <a href="{% url 'login' %}"><span>로그인</span></a>

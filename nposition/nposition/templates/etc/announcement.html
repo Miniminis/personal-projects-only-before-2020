@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="section-title">
-                <h3>공지사항/이벤트<span></span></h3>
+                <h3>공지/이벤트<span></span></h3>
             </div>
             <table class="table table-hover">
                 <thead>
@@ -14,99 +14,18 @@
                         <th scope="col">작성자</th>
                         <th scope="col">작성일</th>
                         <th scope="col">조회수</th>
-                        <th scope="col">좋아요</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for ann in announcements %}
                     <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
+                        <th scope="row">{{ ann.id }}</th>
+                        <td>{{ ann.title }}</td>
+                        <td>{{ ann.writer }}</td>
+                        <td>{{ ann.created_at }}</td>
+                        <td>{{ ann.view_cnt }}</td>
                     </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">18626</th>
-                        <td>수급대장의 단타/단기매매 마스터클래스 1기 모집</td>
-                        <td>수급대장</td>
-                        <td>2020.09.26</td>
-                        <td>4150</td>
-                        <td>500</td>
-                    </tr>
-                    
+                    {% endfor %}                    
                 </tbody>
             </table>
 
