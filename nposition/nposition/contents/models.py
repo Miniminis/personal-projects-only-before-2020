@@ -1,7 +1,14 @@
+import os
+import uuid
+
 from django.db import models
 from helpers.models import BaseModel
 
 # Create your models here.
+
+""" 
+회사관련정보
+"""
 BOARD_TYPE_CHOICES = [
     ('AN', '공지사항'),
     ('EV', '이벤트')
@@ -27,8 +34,14 @@ class FAQ(BaseModel):
     title = models.CharField(max_length=200)
     content = models.TextField()
 
+def image_upload_to(instance, filename):
+    ext = filename.split('.')[-1]
+    return os.path.join(instance.UPLOAD_PATH, "%s.%s" %(uuid.uuid4(), ext))
+
 class ProfitShare(BaseModel):
-    image = models.ImageField()
+    UPLOAD_PATH = 'admin_upload'
+
+    image = models.ImageField(upload_to=image_upload_to)
     content = models.TextField()
 
 class Lecturer(BaseModel):
@@ -36,9 +49,26 @@ class Lecturer(BaseModel):
     description = models.TextField()
     kakao_id = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.name
+
 class Announcement(BaseModel):
     writer = models.CharField(max_length=100)
     title = models.CharField(max_length=200)
     content = models.TextField()
     view_cnt = models.IntegerField(default=0)
     type = models.CharField(max_length=2, choices=BOARD_TYPE_CHOICES, default='AN')
+
+
+
+""" 
+강의
+"""
+class Lecture(BaseModel):
+    lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)    
+    content = models.TextField()
+    price = models.IntegerField(default=0)
+    # start_date = models.DateTimeField()
+    # end_date = models.DateTimeField()
+

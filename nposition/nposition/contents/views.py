@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-from .models import Company, Agreement, FAQ, ProfitShare, Lecturer, Announcement
+from .models import (Company, Agreement, FAQ, ProfitShare, Lecturer, Announcement,
+                        Lecture)
 
 # Create your views here.
 class HomeView(TemplateView):
@@ -9,7 +10,8 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['company_info'] = Company.objects.order_by('created_at').last()
+        context['company_info'] = Company.objects.order_by('id').last()
+        context['profits'] = ProfitShare.objects.order_by('-id')[:6]
         context['mentos'] = Lecturer.objects.all().order_by('-id')[:4]
         context['announcements'] = Announcement.objects.all().order_by('-id')[:4]
         context['agreement'] = Agreement.objects.all()
@@ -27,6 +29,13 @@ class LoginView(TemplateView):
 class LectureView(TemplateView):
     template_name='lecture/lecture.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lectures'] = Lecture.objects.all().order_by('-id')
+        return context
+
+class LectureDetailView(TemplateView):
+    template_name='lecture/lecture_detail.html'
 
 class AnnouncementView(TemplateView):
     template_name='etc/announcement.html'

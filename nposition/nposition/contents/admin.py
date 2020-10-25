@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import (Company, Agreement, FAQ, ProfitShare, Lecturer, Announcement)
+from .models import (Company, Agreement, FAQ, ProfitShare, Lecturer, Announcement,
+                    Lecture)
 
 # Register your models here.
 class CompanyAdmin(admin.ModelAdmin):
@@ -26,3 +27,6 @@ class AnnoucementAdmin(admin.ModelAdmin):
     list_display=('writer', 'title', 'type', 'created_at', 'modified_at')
 admin.site.register(Announcement, AnnoucementAdmin)
 
+class LectureAdmin(admin.ModelAdmin):
+    list_display=('lecturer', 'title', 'price', 'created_at', 'modified_at')
+admin.site.register(Lecture, LectureAdmin)

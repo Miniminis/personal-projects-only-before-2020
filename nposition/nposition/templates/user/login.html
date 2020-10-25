@@ -1,2 +1,41 @@
-login page
+{% extends "base.html" %}
+{% load static %}
 
+{% block title %} Login {% endblock %}
+
+{% block body %}
+<section class="pt-header">
+    <form class="form-signin">
+        <div class="text-center mb-4">
+            <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">로그인</h1>
+        </div>
+
+        <div class="form-group">
+            <label for="input_email">아이디(이메일)</label>
+            <input type="email" class="form-control" id="input_email" aria-describedby="emailHelp" >
+            <small id="emailHelp" class="form-text text-muted">해당 메일계정으로 소통하게 됩니다. 존재하는 계정을 적어주세요.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="input_pw">비밀번호</label>
+            <input type="password" class="form-control" id="input_pw" aria-describedby="emailHelp" >
+            <small id="login_warning" class="form-text text-muted">영문, 숫자 조합 8자리 이상 조건을 충족해주세요.</small>
+        </div>
+
+        <div class="form-group">
+            <small id="login_warning" class="form-text text-muted">아이디 혹은 비밀번호를 확인해주세요!</small>
+        </div>
+
+        <div class="form-group align-left">
+            <span><a href="">아이디/비밀번호찾기</a></span>
+            <span class="float-right"><a href="{% url 'register' %}">회원가입</a></span>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary">로그인하기</button>
+        <hr>
+        <img id="btn_kakao_login" class="btn btn-block" src="{% static 'img/kakao_login_medium_wide.png' %}">
+    </form>
+</section>
+
+{% endblock %}

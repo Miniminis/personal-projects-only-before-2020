@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (MentoView, 
-                    LectureView, 
+                    LectureView, LectureDetailView,
                     MenteeWelcomeView, MenteeProfitAuthView, MenteeProductRecommView, 
                     MenteeBoardView, MenteeQnAView,
                     AnnouncementView, 
@@ -11,6 +11,7 @@ urlpatterns = [
     path('mento/', MentoView.as_view(), name='mento'),
 
     path('lecture/', LectureView.as_view(), name='lecture'),
+    path('lecture/detail', LectureDetailView.as_view(), name='lecture_detail'),
 
     path('mentee/welcome', MenteeWelcomeView.as_view(), name='welcome'),
     path('mentee/profit', MenteeProfitAuthView.as_view(), name='profit'),
