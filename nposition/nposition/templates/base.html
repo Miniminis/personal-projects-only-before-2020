@@ -30,9 +30,7 @@
     <!-- Template Main CSS File -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    {% block head %}
-        
-    {% endblock %}
+    {% block head %} {% endblock %}
 </head>
 
 <body>
@@ -40,36 +38,89 @@
     <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
         <div class="container d-flex">
             <div class="contact-info mr-auto">
-                <i class="icofont-envelope"></i> <a href="mailto:contact@example.com">{{ company_info.email }}</a>
-                <i class="icofont-phone"></i> {{ company_info.tel_num }}
+                <i class="icofont-envelope"></i> <a href="mailto:contact@example.com"> <span id="top_email"></span>
+                    <i class="icofont-phone"></i> <span id="top_tel_num"></span>
             </div>
             <div class="social-links">
                 <a href="{% url 'login' %}"><span>로그인</span></a>
-                <!-- <a href="{% url 'register' %}"><span>회원가입</span></a> -->
-
-                <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-                <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-                <a href="#" class="skype"><i class="icofont-skype"></i></a>
-                <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a> -->
             </div>
         </div>
     </div>
 
     <!-- ======= Header ======= -->
-    {% include "header.html" %}
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo mr-auto"><a href="{% url 'index' %}">NPosition<span>.</span></a></h1>
+
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li><a href="{% url 'lecture'%}">강의</a>
+                    </li>
+                    <li><a href="{% url 'announce'%}">공지/이벤트</a>
+                    <li><a href="{% url 'faq'%}">문의</a>
+                </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+
 
     <!-- ======= Body ======= -->
     <main id="main">
-        {% block body %}  {% endblock %}
+        {% block body %} {% endblock %}
     </main>
 
     <!-- ======= Footer ======= -->
-    {% include "footer.html" %}
-  
+    <footer id="footer">
+        <div class="footer-top section-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 footer-contact">
+                        <h3 id="footer_company_name"><span></span></h3>
+                        <p>
+                            <span id="footer_company_address"></span> <br><br>
+                            <strong>대표자: </strong><span id="footer_company_ceo"></span><br>
+                            <strong>전화: </strong><span id="footer_company_tel_num"></span><br>
+                            <strong>이메일: </strong> <span id="footer_company_email"></span><br>
+                            <strong>사업자번호: </strong><span id="footer_company_busin_num"></span><br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>이용약관</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a id="agree_private" href=""
+                                    target="_blank">개인정보처리방침</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a id="agree_service" href="" target="_blank">서비스
+                                    이용약관</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a id="agree_unique_info" href=""
+                                    target="_blank">고유식별정보처리방침</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>문의</h4>
+                        <div class="social-links mt-3">
+                            <strong>카카오 ID: </strong><span id="footer_company_kakao_id"></span><br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>BizLand</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
     <div id="preloader"></div>
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-  
+
     <!-- Vendor JS Files -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -84,6 +135,37 @@
 
     <!-- Template Main JS File -->
     <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $.get('/apis/v1/home/',
+                {},
+                function (obj) {
+                    company = obj.data.company_info
+                    agreement = obj.data.agreement
+
+                    $('#top_email').text(company.email);
+                    $('#top_tel_num').text(company.tel_num);
+
+                    $('#footer_company_name').text(company.name);
+                    $('#footer_company_address').text(company.address);
+                    $('#footer_company_ceo').text(company.ceo);
+                    $('#footer_company_tel_num').text(company.tel_num);
+                    $('#footer_company_email').text(company.email);
+                    $('#footer_company_busin_num').text(company.busin_num);
+                    $('#footer_company_kakao_id').text(company.kakao_id);
+
+                    $('#agree_private').attr("href", agreement.personal_info);
+                    $('#agree_service').attr("href", agreement.service_usage);
+                    $('#agree_unique_info').attr("href", agreement.unique_info);
+
+                })
+                .fail(function (obj) {
+                    console.log(obj.responseJSON.message)
+                });
+        });
+
+    </script>
 </body>
 
 </html>

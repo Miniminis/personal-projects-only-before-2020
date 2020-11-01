@@ -1801,7 +1801,7 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #106eea;
+  /* color: #106eea; */
 }
 
 #footer .footer-top .social-links a {
@@ -1866,6 +1866,7 @@ section {
 .float-right {
   float: right;
 }
+
 
 /*--------------------------------------------------------------
 # Login / Register

@@ -5,8 +5,9 @@
 {% block body %}
 <section class="pt-header">
     <form class="form-signin">
+
         <div class="text-center mb-4">
-            <img class="mb-4" src="{% static 'img/clients/client-2.png' %}" alt="" width="72" height="72">
+            <img class="mb-4" src="{% static 'img/apple-touch-icon.png' %}" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
         </div>
 
@@ -15,8 +16,7 @@
 
         <div class="form-group">
             <label for="input_email">아이디(이메일)</label>
-            <input type="email" class="form-control" id="input_email" aria-describedby="emailHelp"
-                placeholder="아이디(이메일)을 입력해주세요">
+            <input type="email" class="form-control" id="input_email">
         </div>
 
         <div class="form-group">
@@ -35,17 +35,23 @@
         </div>
 
         <div class="form-group">
+            <small id="login_warning" class="form-text text-danger">아이디 혹은 비밀번호를 확인해주세요!</small>
+        </div>
+
+        <div class="form-group">
             <p class="pb-3">
                 본인은 만 14세 이상이며, 엔포지션의
                 <a href="https://www.naver.com" target="_blank">서비스 이용약관</a>,
-                <a href="https://www.naver.com" target="_blank">개인정보 수집 및 이용</a>,
-                <a href="https://www.naver.com" target="_blank">개인정보 제공 내용</a>
-                <a href="https://www.naver.com" target="_blank">전자금융거래이용약관</a>,
+                <a href="https://www.youtube.com" target="_blank">개인정보 수집 및 이용</a>,
+                <a href="https://www.google.com" target="_blank">개인정보 제공 내용</a>
+                <a href="https://www.yahoo.com" target="_blank">전자금융거래이용약관</a>,
                 <a href="https://www.naver.com" target="_blank">마케팅 수신 동의</a>
                 을 확인 하였으며, 동의합니다.
             </p>
-            <button type="submit" class="btn btn-block btn-primary">동의하고 가입하기</button>
         </div>
+
+        <button type="submit" class="btn btn-block btn-primary">동의하고 가입하기</button>
+
     </form>
 </section>
 

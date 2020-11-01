@@ -5,11 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "Python: Django",
+            "type": "python",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "program": "${workspaceFolder}\\nposition\\manage.py",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true
         }
     ]
 }
