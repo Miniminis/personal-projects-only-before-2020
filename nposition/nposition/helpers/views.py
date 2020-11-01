@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 class BaseView(View):
     
     @staticmethod
-    def response(data={}, message='정상처리되었습니다.', status=200):
+    def response(data={}, message='', status=200):
         result = {
             'data': data,
             'message': message,
