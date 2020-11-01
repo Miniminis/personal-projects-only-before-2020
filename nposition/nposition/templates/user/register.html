@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block title %} Login {% endblock %}
 
 {% block body %}
@@ -10,6 +9,9 @@
             <img class="mb-4" src="{% static 'img/clients/client-2.png' %}" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
         </div>
+
+        <img id="btn_kakao_login" class="btn btn-block" src="{% static 'img/kakao_login_medium_wide.png' %}">
+        <hr>
 
         <div class="form-group">
             <label for="input_email">아이디(이메일)</label>
